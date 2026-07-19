@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Tarea 2\Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Tarea 2\" />
   </ItemGroup>
 
