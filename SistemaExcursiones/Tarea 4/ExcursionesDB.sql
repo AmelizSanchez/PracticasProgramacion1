@@ -1,4 +1,3 @@
-
 CREATE DATABASE ExcursionesDB;
 GO
 
@@ -29,17 +28,26 @@ CREATE TABLE Participantes
 );
 GO
 
-INSERT INTO Excursiones (Nombre, Lugar, Dia, Cupos)
-VALUES ('Playa Bavaro', 'Punta Cana', 'Sabado', 20);
 
 INSERT INTO Excursiones (Nombre, Lugar, Dia, Cupos)
-VALUES ('Salto El Limon', 'Samana', 'Domingo', 15);
+VALUES 
+('Playa Bavaro', 'Punta Cana', '5 de enero del 2026', 20);
 
-INSERT INTO Participantes (Nombre, Documento, Telefono, IdExcursion, NumeroCupo, Pagado)
-VALUES ('Juan Perez', '00112223334', '8095551234', 1, 1, 1);
+INSERT INTO Excursiones (Nombre, Lugar, Dia, Cupos)
+VALUES 
+('Salto El Limon', 'Samana', '12 de octubre del 2026', 15);
 
-INSERT INTO Participantes (Nombre, Documento, Telefono, IdExcursion, NumeroCupo, Pagado)
-VALUES ('Maria Gomez', '00199988877', '8295556789', 1, 2, 0);
+
+INSERT INTO Participantes 
+(Nombre, Documento, Telefono, IdExcursion, NumeroCupo, Pagado)
+VALUES 
+('Juan Perez', '00112223334', '8095551234', 1, 1, 1);
+
+INSERT INTO Participantes 
+(Nombre, Documento, Telefono, IdExcursion, NumeroCupo, Pagado)
+VALUES 
+('Maria Gomez', '00199988877', '8295556789', 1, 2, 0);
+
 
 SELECT * FROM Excursiones;
 SELECT * FROM Participantes;
