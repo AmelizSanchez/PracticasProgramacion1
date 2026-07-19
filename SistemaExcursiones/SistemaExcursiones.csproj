@@ -9,10 +9,16 @@
 
   <ItemGroup>
     <Compile Remove="Tarea 2\Program.cs" />
+    <Compile Remove="Tarea 3\Program.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Tarea 2\" />
+    <Folder Include="Tarea 3\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
   </ItemGroup>
 
 </Project>
