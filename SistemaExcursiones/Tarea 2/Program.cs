@@ -4,13 +4,11 @@ using System.Collections.Generic;
 
 class Program
 {
-	// ---------- EXCURSIONES ----------
 	static List<string> exNombres = new List<string>();
 	static List<string> exLugares = new List<string>();
 	static List<string> exDias = new List<string>();
 	static Dictionary<string, int> cuposPorExcursion = new Dictionary<string, int>();
 
-	// ---------- PARTICIPANTES ----------
 	static List<string> partNombres = new List<string>();
 	static List<string> partDocumentos = new List<string>();
 	static List<string> partTelefonos = new List<string>();
@@ -80,7 +78,6 @@ class Program
 		Console.WriteLine("Reservas con pago pendiente: " + pendientes);
 	}
 
-	// ---------- FUNCIONES AUXILIARES DE VALIDACION ----------
 
 	static bool EsTextoValido(string texto)
 	{
@@ -109,8 +106,6 @@ class Program
 		return true;
 	}
 
-	// busca una excursion por nombre sin importar mayusculas/minusculas
-	// y devuelve el nombre EXACTO tal como esta guardado (o null si no existe)
 	static string BuscarNombreExcursionExacto(string texto)
 	{
 		foreach (string nombre in exNombres)
@@ -121,8 +116,6 @@ class Program
 		return null;
 	}
 
-	// busca un participante por documento sin importar mayusculas/minusculas
-	// y devuelve su posicion en las listas (o -1 si no existe)
 	static int BuscarIndicePorDocumento(string documento)
 	{
 		for (int i = 0; i < partDocumentos.Count; i++)
@@ -133,9 +126,6 @@ class Program
 		return -1;
 	}
 
-	// =====================================================
-	//                   EXCURSIONES
-	// =====================================================
 	static void MenuExcursiones()
 	{
 		string opcion = "";
@@ -383,7 +373,6 @@ class Program
 				return;
 			}
 
-			// recorremos de atras hacia adelante para no saltarnos elementos al borrar
 			for (int i = partExcursion.Count - 1; i >= 0; i--)
 			{
 				if (partExcursion[i] == nombreReal)
@@ -406,9 +395,6 @@ class Program
 		Console.WriteLine("Excursion eliminada.");
 	}
 
-	// =====================================================
-	//                   PARTICIPANTES
-	// =====================================================
 	static void MenuParticipantes()
 	{
 		string opcion = "";
@@ -625,17 +611,14 @@ class Program
 				return;
 			}
 
-			// devolver el cupo de la excursion vieja
 			cuposPorExcursion[excursionVieja]++;
 
-			// calcular nuevo numero de cupo en la excursion nueva
 			int numeroCupo = 1;
 			for (int i = 0; i < partExcursion.Count; i++)
 			{
 				if (partExcursion[i] == excursionNueva) numeroCupo++;
 			}
 
-			// tomar el cupo en la excursion nueva
 			cuposPorExcursion[excursionNueva]--;
 
 			partExcursion[index] = excursionNueva;
@@ -675,7 +658,6 @@ class Program
 		partNumeroCupo.RemoveAt(index);
 		partPago.RemoveAt(index);
 
-		// devolver el cupo, solo si la excursion todavia existe
 		if (cuposPorExcursion.ContainsKey(excursion))
 			cuposPorExcursion[excursion]++;
 
